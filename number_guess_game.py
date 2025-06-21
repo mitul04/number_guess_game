@@ -41,3 +41,6 @@ while choice.lower() == "yes":
 else:
     print("Thanks for playing!")
     quit()
+
+# End of the number guessing game
+# This is a simple number guessing game where the user has to guess a randomly generated number within a specified range.
