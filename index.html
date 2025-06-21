@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 400px; margin: auto; }
+        input, button { margin: 5px 0; padding: 8px; width: 100%; }
+        #feedback { margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Number Guessing Game</h2>
+    <div id="setup">
+        <label>Enter range (e.g. 1 100):</label>
+        <input type="text" id="rangeInput" placeholder="e.g. 1 100">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <div id="game" style="display:none;">
+        <label>Enter your guess:</label>
+        <input type="number" id="guessInput">
+        <button onclick="makeGuess()">Guess</button>
+        <div id="feedback"></div>
+        <button id="restartBtn" onclick="restartGame()" style="margin-top:10px; display:none;">Restart</button>
+    </div>
+</div>
+<script src="guess_game.js"></script>
+</body>
+</html>
