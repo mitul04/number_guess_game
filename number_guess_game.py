@@ -41,3 +41,7 @@ while choice.lower() == "yes":
 else:
     print("Thanks for playing!")
     quit()
+
+for i in range(10):
+    print("This is a placeholder for future code.")
+    # Future code can be added here
