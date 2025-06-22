@@ -1,36 +1,49 @@
-import random
+# This is a simple number guessing game where the user has to guess a randomly generated number within a specified range.
+# The game continues until the user decides to stop playing.
+
+import random, math
 
 choice = "yes"
 
-while choice.lower() == "yes":
-    start, stop = input("Give me a range of numbers: ").split()
+while choice == "yes":
+    start, stop = input("Give me two numbers for the guessing range: ").split()
 
-    if start.isdigit() and stop.isdigit():
+    try:
         start, stop = map(int, (start, stop))
 
-    else:
-        print("Both should be numbers.")
-        quit()
+    except ValueError:
+        print("Both must be numbers for this to work. Try again!")
+        continue
 
-    if start >= stop:
+    if start > stop:
         start, stop = stop, start
 
     number = random.randint(start, stop)
     guesses = 0
-
+    best = math.ceil(math.log2(stop - start + 1))
     print("Let's see in how many guesses you can guess this number")
 
     while True:
-        guesses += 1
-        guess = input(f"Guess {guesses}: ")
+        guess = input(f"Guess {guesses + 1}: ")
 
         if not guess.isdigit():
             print("Please enter a valid number.")
             continue
+        
         guess = int(guess)
+        guesses += 1
 
         if guess == number:
-            print("You got it right in", guesses, "guesses")
+            print(f"\nYou got it right in {guesses} moves")
+            print(f"I expected your guess in {best} moves.")
+
+            if guesses < best:
+                print("You are a genius!")
+            elif guesses <= best + 2:
+                print("Impressive guesswork!")
+            else:
+                print("Aim for lower moves next time!")
+
             break
 
         elif guess > number:
@@ -39,11 +52,10 @@ while choice.lower() == "yes":
         else:
             print("You are behind the number")
 
-    choice = input("Play again? (yes/no) ")
+    choice = input("\nPlay again? (yes/no) ").strip().lower()
 
-else:
-    print("Thanks for playing!")
-    quit()
+    if choice not in {"yes", "no"}:
+        print("Invalid choice. Exiting the game.")
+        break
 
-# This is a simple number guessing game where the user has to guess a randomly generated number within a specified range.
-# The game continues until the user decides to stop playing.
+print("\nThanks for playing!")
