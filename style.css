@@ -1,0 +1,17 @@
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 40px; 
+}
+.container { 
+    max-width: 400px; 
+    margin: auto; 
+}
+input, button { 
+    margin: 5px 0; 
+    padding: 8px; 
+    width: 100%; 
+}
+#feedback { 
+    margin-top: 15px; 
+    font-weight: bold; 
+}
