@@ -22,6 +22,6 @@ A fun and simple Python CLI game where the system chooses a random number within
 (Make sure you have Python installed.)
 
 ```bash
-git clone https://github.com/yourusername/number-guess-game.git
+git clone [https://github.com/mitul04/number_guess_game.git](https://github.com/mitul04/number_guess_game.git)
 cd number-guess-game
 python3 number_guess_game.py
